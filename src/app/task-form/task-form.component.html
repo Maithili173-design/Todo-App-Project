@@ -1,0 +1,40 @@
+<!-- src/app/task-form/task-form.component.html -->
+<h2 mat-dialog-title>New Task</h2>
+<form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <mat-label>Assigned To</mat-label>
+    <input matInput formControlName="assignedTo">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Status</mat-label>
+    <mat-select formControlName="status">
+      <mat-option value="Not Started">Not Started</mat-option>
+      <mat-option value="In Progress">In Progress</mat-option>
+      <mat-option value="Completed">Completed</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Due Date</mat-label>
+    <input matInput [matDatepicker]="picker" formControlName="dueDate">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Priority</mat-label>
+    <mat-select formControlName="priority">
+      <mat-option value="Low">Low</mat-option>
+      <mat-option value="Normal">Normal</mat-option>
+      <mat-option value="High">High</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Comments</mat-label>
+    <textarea matInput formControlName="comments"></textarea>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit">Save</button>
+</form>

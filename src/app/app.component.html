@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task List</title>
+    <link rel="stylesheet" href="app.component.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="app.component.js" defer></script> <!-- Compiled JavaScript file -->
+</head>
+<body>
+  <div class="task-container">
+    <div class="header">
+        <div class="header-left">
+            <i class="fas fa-tasks task-icon"></i> <!-- Font Awesome task icon -->
+            <h2>Tasks</h2>
+        </div>
+        <div class="header-right">
+            <div class="buttons-container">
+              <button id="newTaskBtn" (click)="isModalOpen()" class="new-task-btn">New Task</button>
+                <button class="refresh-btn">Refresh</button>
+            </div>
+            <div class="search-container">
+                <input type="text" placeholder="Search" class="search-input">
+                <button class="search-btn">
+                    <i class="fas fa-search"></i> <!-- Font Awesome search icon -->
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="all-tasks-header">
+        <h3>All Tasks</h3>
+    </div>
+    
+    <table class="task-table">
+        <thead>
+            <tr>
+                <th><input type="checkbox"></th>
+                <th>Assigned To</th>
+                <th>Status</th>
+                <th>Due Date</th>
+                <th>Priority</th>
+                <th>Comments</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td><a href="#">User 1</a></td>
+                <td>Completed</td>
+                <td>12/10/2024</td>
+                <td>Low</td>
+                <td>This task is good</td>
+                <td>
+                    <div class="dropdown">
+                        <button class="action-btn">...</button>
+                        <div class="dropdown-content">
+                            <a href="#">Edit</a>
+                            <a href="#">Delete</a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td><a href="#">User 2</a></td>
+                <td>In Progress</td>
+                <td>14/09/2024</td>
+                <td>High</td>
+                <td>This task is good</td>
+                <td>
+                    <div class="dropdown">
+                        <button class="action-btn">...</button>
+                        <div class="dropdown-content">
+                            <a href="#">Edit</a>
+                            <a href="#">Delete</a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <!-- Add more rows as needed -->
+        </tbody>
+    </table>
+
+    <div class="pagination">
+    <button class="pagination-btn">&laquo; First</button>
+    <button class="pagination-btn">&lsaquo; Prev</button>
+    <span class="page-numbers">
+        <button class="pagination-btn">1</button>
+        <!-- Add more page numbers dynamically if needed -->
+    </span>
+    <button class="pagination-btn">Next &rsaquo;</button>
+    <button class="pagination-btn">Last &raquo;</button>
+</div>
+ <!-- Modal for adding a new task -->
+ <div class="modal" id="newTaskModal">  
+  <div class="modal-content">
+      <span class="close" >&times;</span>
+      <h2>New Task</h2>
+      <form>
+          <!-- Form fields for the new task -->
+          <label for="assignedTo">Assigned To</label>
+          <select id="assignedTo">
+              <option>User 1</option>
+              <option>User 2</option>
+          </select>
+
+          <label for="status">Status</label>
+          <select id="status">
+              <option>Not Started</option>
+              <option>In Progress</option>
+              <option>Completed</option>
+          </select>
+
+          <label for="dueDate">Due Date</label>
+          <input type="date" id="dueDate">
+
+          <label for="priority">Priority</label>
+          <select id="priority">
+              <option>Normal</option>
+              <option>High</option>
+              <option>Low</option>
+          </select>
+
+          <label for="description">Description</label>
+          <textarea id="description" rows="4"></textarea>
+
+          <div class="modal-actions">
+              <button type="button" class="cancel-btn">Cancel</button>
+              <button type="submit" class="save-btn">Save</button>
+          </div>
+      </form>
+  </div>
+</div>
+
+ </div>
+</body>
+</html>

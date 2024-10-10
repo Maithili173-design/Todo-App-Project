@@ -1,0 +1,15 @@
+/* src/app/task-form/task-form.component.css */
+form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  
+  button {
+    align-self: flex-end;
+  }
+  
